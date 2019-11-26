@@ -8,17 +8,18 @@
     }
      const ctx = canvas.getContext('2d');  //絵筆のようなもの(色設定や、描画)
 
-    ctx.fillStyle = 'pink';  //塗りつぶしの色
-    ctx.strokeStyle = '#f00';  //枠線の色
+     //ctx.createLinearGradient(x0, y0, x1(終点), y1(終点));
+     const g = ctx.createLinearGradient(0, 0, canvas.width,0);
 
-     ctx.fillRect(50, 50, 50, 50);
-     ctx.strokeRect(50, 50, 50, 50);
+     g.addColorStop(0, '#f00'); //始点(0)に赤色を配置
+     g.addColorStop(0.3, '#0f0');
+     g.addColorStop(1, '#00f'); //終点(1)に青色を配置
 
-    ctx.fillStyle = 'skyblue';
-    ctx.strokeStyle = '#00b'
+     ctx.fillStyle = g;
 
-     ctx.fillRect(70, 70, 50, 50);
-     ctx.strokeRect(70, 70, 50, 50);
+    //  ctx.fillRect(0, 0, 600, 240);
+     ctx.fillRect(0, 0, canvas.width, canvas.height);
+
   }
 
   draw();  
