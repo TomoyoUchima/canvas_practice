@@ -8,11 +8,13 @@
     }
      const ctx = canvas.getContext('2d');  
 
-     ctx.shadowOffsetX = 4;
-     ctx.shadowOffsetY = 4;
-     ctx.shadowBlur = 4;
-     ctx.shadowColor = 'rgba(0, 0, 0, 0.3)';
-     ctx.fillRect(50, 50, 50, 50);
+     ctx.beginPath();
+     ctx.moveTo(50, 50);  //開始位置
+     ctx.lineTo(100, 50); //線を引く命令(真横に線を弾きたいのでx方向だけ大きく
+     ctx.lineTo(100, 100); //線を引く命令
+     ctx.closePath(); //線を閉じる
+     ctx.fill(); //塗りつぶし
+    //  ctx.stroke();  //描画
 
   }
 
