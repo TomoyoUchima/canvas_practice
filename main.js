@@ -8,26 +8,26 @@
     }
      const ctx = canvas.getContext('2d');  
 
-     ctx.beginPath();
-     ctx.moveTo(100, 50);
-     ctx.lineTo(200, 50);
-     ctx.setLineDash([5, 10]); //線を引く長さと空白を交互に指定
-     ctx.stroke();
+    ctx.beginPath();
+    // tx.arc(x, y, r, start, end);
+    // x,y → 円の中心の位置、  r → 半径　　360° = 2π
+    // 0°が右端、時計回りに角度が増えていく
+    // ctx.arc(100, 100, 50, 0, 2 * Math.PI);　//円
+    // ctx.arc(100, 100, 50, 0, 300 / 360 * 2 * Math.PI); //300°の場
+    // ctx.arc(100, 100, 50, 0, 300 / 180 * Math.PI); //300°の場合(約分)
+    ctx.moveTo(100, 100);
+    ctx.arc(100, 100, 50, 0, 300 / 180 * Math.PI, true); //扇型
+    
 
-     ctx.beginPath();
-     ctx.moveTo(100, 100);
-     ctx.lineTo(200, 100);
-     ctx.setLineDash([]);  //上の点線が引き継がれるため、実線にするには空の配列を指定
-     ctx.stroke();
+    //最後の引数に true を与えると反時計周りにしてくれる。
+    // ctx.stroke(); 
+    ctx.fill(); //塗りつぶしの場合
 
+    
 
-     ctx.beginPath();
-     ctx.moveTo(100, 150);
-     ctx.lineTo(200, 150);
-     ctx.lineWidth = 16;
-     ctx.lineCap = 'round';
-     ctx.stroke();
   }
 
   draw();  
 }
+
+console.log(300 / 360 * 2 * Math.PI)
