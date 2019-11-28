@@ -8,13 +8,19 @@
     }
      const ctx = canvas.getContext('2d');  
 
-     // ctx.ellipse(x, r, rx, ry, rotation, start, end);
-    //  x、y → 中心のxy座標、rx、ry → x、y各半径、 残りはそれぞれの角度
-    //  beginPathは省略可能
-    //  ctx.ellipse(100, 100, 50, 30, 0, 0, 2 * Math.PI);
-    ctx.rect(50, 50, 50, 50);
-    // ctx.fillRect(50, 50, 50, 50); ↑と同じ
+     ctx.beginPath();
+     ctx.moveTo(0, 100);
+     ctx.lineTo(canvas.width, 100);
+     ctx.moveTo(100, 0);
+     ctx.lineTo(100, canvas.height);
      ctx.stroke();
+
+     ctx.font = 'bold 64px Verdana';
+     ctx.textAlign = 'right'; //横方向を変更する場合
+     ctx.textBaseline = 'top'; //縦方向を変更する場合
+    //  ctx.fillText('Tokyo', 100, 100); //表示させたい文字列、表示させたい座標
+    //  ctx.fillText('Tokyo', 100, 100, 100); //最後にテキストの最大幅を指定できる
+    ctx.strokeText('Tokyo', 100, 100, 100); //枠線テキストの場合
 
   }
 
