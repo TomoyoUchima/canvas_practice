@@ -8,20 +8,32 @@
     }
      const ctx = canvas.getContext('2d');  
 
-     const img = document.createElement('img');
-     img.src = 'img/sprite.png'
+     ctx.beginPath();
+     ctx.ellipse(100, 100, 40, 30, 0, 0, 2 * Math.PI); //2π = 360°
+     ctx.fillStyle = 'black';
+     ctx.fill();
 
-     img.addEventListener('load', () => {
-       ctx.drawImage(img, 0, 0);
-       ctx.drawImage(
-        img, 
-        //sx, sy, sw, wh → 描画元(source)
-        //dx, dy, dw, dh → 表示先(destination)
-        70 * 2, 70, 70, 70,
-        0, 0, 35, 35
-       )
+     ctx.beginPath();
+     ctx.ellipse(80, 100, 8, 8, 0, 0, 2 * Math.PI); //2π = 360°
+     ctx.ellipse(120, 100, 8, 8, 0, 0, 2 * Math.PI); //2π = 360°
+     ctx.fillStyle = 'skyblue';
+     ctx.fill();
 
-     });
+//同じキャラクターを描きたい場合、また座標を計算するのがめんどくさい場合
+     ctx.scale(0.5, 0.5);  //xy方向の倍率を指定できる
+
+
+     ctx.beginPath();
+     ctx.ellipse(100, 100, 40, 30, 0, 0, 2 * Math.PI); //2π = 360°
+     ctx.fillStyle = 'black';
+     ctx.fill();
+
+     ctx.beginPath();
+     ctx.ellipse(80, 100, 8, 8, 0, 0, 2 * Math.PI); //2π = 360°
+     ctx.ellipse(120, 100, 8, 8, 0, 0, 2 * Math.PI); //2π = 360°
+     ctx.fillStyle = 'skyblue';
+     ctx.fill();
+
   }
 
   draw();  
