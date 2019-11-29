@@ -22,6 +22,8 @@
      ctx.fillStyle = 'skyblue';
      ctx.fill();
 
+     ctx.save();
+
 //同じキャラクターを描きたい場合、また座標を計算するのがめんどくさい場合
      ctx.scale(0.5, 0.5);  //xy方向の倍率を指定できる
      ctx.translate(400, 0);  //座標空間を移動させる
@@ -43,6 +45,10 @@
      ctx.fillStyle = 'skyblue';
      ctx.fill();
 
+     ctx.restore();
+
+     ctx.fillStyle = 'black';
+     ctx.fillRect(80, 120, 40, 40);
   }
 
   draw();  
