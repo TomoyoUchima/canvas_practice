@@ -8,23 +8,23 @@
     }
      const ctx = canvas.getContext('2d');  
 
-     ctx.beginPath();
-     ctx.moveTo(0, 100);
-     ctx.lineTo(canvas.width, 100);
-     ctx.moveTo(100, 0);
-     ctx.lineTo(100, canvas.height);
-     ctx.stroke();
+     const img = document.createElement('img');
+     img.src = 'img/logo.png';　//ソース指定
 
-     ctx.font = 'bold 64px Verdana';
-     ctx.textAlign = 'right'; //横方向を変更する場合
-     ctx.textBaseline = 'top'; //縦方向を変更する場合
-    //  ctx.fillText('Tokyo', 100, 100); //表示させたい文字列、表示させたい座標
-    //  ctx.fillText('Tokyo', 100, 100, 100); //最後にテキストの最大幅を指定できる
-    ctx.strokeText('Tokyo', 100, 100, 100); //枠線テキストの場合
+     //画像の場合、読み込みが終わった場合に描画させたい
+     img.addEventListener('load', () => {
+      //  ctx.drawImage(img, 0, 0); //左上に表示
+      //  ctx.drawImage(img, 0, 0, 40, 40); //幅指定可能
+      //  const pattern = ctx.createPattern(img, 'repeat'); //cteatePattern → 画像を塗りに設定、　repeat → 縦横方向に画像を繰り返す形で敷き詰められる
+      // 一部の方向だけ繰り返したい場合 → repeat-x, repeat-y, no-repeat  ↓例
+      const pattern = ctx.createPattern(img, 'repeat-y');
+       ctx.fillStyle = pattern;
+       ctx.fillRect(0, 0, canvas.width, canvas.height);
+     });
 
+    //  fillRect
   }
 
   draw();  
 }
 
-console.log(300 / 360 * 2 * Math.PI)
